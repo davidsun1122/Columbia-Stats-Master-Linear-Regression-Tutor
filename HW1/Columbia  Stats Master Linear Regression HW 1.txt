@@ -1,0 +1,43 @@
+data <- read.table("http://www.stat.ufl.edu/~rrandles/sta4210/Rclassnotes/data/textdatasets/KutnerData/Chapter%20%201%20Data%20Sets/CH01PR19.txt", header = FALSE)
+names(data)[1]<-paste("y")
+names(data)[2]<-paste("x")
+attach(data)
+
+reg <- lm(y ~ x)
+summary(reg)
+
+print(reg)
+'
+a) 
+  b0 = 2.11405, b1 = 0.03883 
+  y = 0.03883 * x + 2.11405
+'
+func<- function(x)
+{0.03883 * x + 2.11405}
+
+plot(func,0,35)
+
+plot(x,y)
+cor(x,y)
+abline(reg)
+'
+b)
+
+It does not fit the data very well. 
+
+The main reason is the correlation between x and y is not very strong, only 0.2694818
+'
+print(func(30))
+
+'c)
+
+The point estimate of the mean freshman GPA for students with ACT score = 30 is: 
+
+3.27895'
+
+'d)
+
+The point estimate of the change in the mean response when the entrance test score increses by one point will
+
+increase by 0.03883
+'
